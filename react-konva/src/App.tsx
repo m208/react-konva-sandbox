@@ -2,13 +2,14 @@ import { Stage, Layer, Rect, Circle, Line, Text, } from 'react-konva';
 import './App.css'
 import { Shape } from 'konva/lib/Shape';
 import { useRef } from 'react';
+import Konva from 'konva';
 
 const defaultColor = '#00D2FF';
 
 function App() {
 
-  const tooltipRef = useRef(null);
-  const tooltip = tooltipRef.current as Shape | null;
+  const tooltipRef = useRef<Konva.Text>(null);
+  const tooltip = tooltipRef.current
 
   return (
     // Stage - is a div wrapper
@@ -32,7 +33,7 @@ function App() {
               y: mousePos!.y + 5,
             })
 
-            tooltip.setAttr('text', shape.name())
+            tooltip.text(shape.name());
           }
 
         }}
@@ -57,6 +58,7 @@ function App() {
           tension={0.3}
           opacity={0.7}
           name='Figure 3 BLOB'
+          draggable={true}
         >
         </Line>
 
