@@ -1,5 +1,5 @@
 import { Stage } from 'react-konva';
-import './App.css'
+// import './App.css'
 import { LayerOne } from './components/LayerOne/LayerOne';
 import { LayerTwo } from './components/LayerTwo/LayerTwo';
 
@@ -10,7 +10,7 @@ function App() {
     // Layer - is an actual 2d canvas element, so you can have several layers inside the stage
     // Rect and Circle are not DOM elements. They are 2d shapes on canvas
 
-    <Stage width={window.innerWidth} height={window.innerHeight}>
+    <Stage width={window.innerWidth} height={window.innerHeight} draggable={true}>
       <LayerOne></LayerOne>
       <LayerTwo></LayerTwo>
     </Stage >

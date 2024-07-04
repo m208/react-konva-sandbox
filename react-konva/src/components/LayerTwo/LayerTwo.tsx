@@ -62,7 +62,7 @@ export const LayerTwo = (): JSX.Element => {
                 fontFamily='Calibri'
                 fontSize={12}
                 padding={5}
-                visible={false}
+                visible={true}
                 stroke='black'
                 strokeWidth={1}
             >
