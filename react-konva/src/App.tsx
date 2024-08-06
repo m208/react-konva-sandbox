@@ -1,7 +1,7 @@
 import { Stage } from 'react-konva';
-// import './App.css'
 import { LayerOne } from './components/LayerOne/LayerOne';
 import { LayerTwo } from './components/LayerTwo/LayerTwo';
+import { LayerImages } from './components/LayerImages/LayerImages';
 
 const scaleBy = 1.1;
 
@@ -45,6 +45,7 @@ function App() {
     >
       <LayerOne></LayerOne>
       <LayerTwo></LayerTwo>
+      <LayerImages></LayerImages>
     </Stage >
 
   )
