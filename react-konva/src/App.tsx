@@ -1,11 +1,13 @@
 import { Stage } from 'react-konva';
 import { LayerOne } from './components/LayerOne/LayerOne';
 import { LayerTwo } from './components/LayerTwo/LayerTwo';
-import { LayerImages } from './components/LayerImages/LayerImages';
+import { StageDragHandler, LayerThree } from './components/LayerThree/LayerThree';
+import { useRef } from 'react';
 
 const scaleBy = 1.1;
 
 function App() {
+  const layerRef = useRef<StageDragHandler>(null);
 
   return (
     // Stage - is a div wrapper
@@ -16,6 +18,9 @@ function App() {
       width={window.innerWidth}
       height={window.innerHeight}
       draggable={true}
+      onDragEnd={() => {
+        layerRef.current?.onDragEnd();
+      }}
       onWheel={(e) => {
         e.evt.preventDefault();
 
@@ -45,7 +50,7 @@ function App() {
     >
       <LayerOne></LayerOne>
       <LayerTwo></LayerTwo>
-      <LayerImages></LayerImages>
+      <LayerThree ref={layerRef}></LayerThree>
     </Stage >
 
   )
