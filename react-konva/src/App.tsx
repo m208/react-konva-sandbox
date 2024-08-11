@@ -1,8 +1,7 @@
 import { Stage } from 'react-konva';
-import { LayerOne } from './components/LayerOne/LayerOne';
-import { LayerTwo } from './components/LayerTwo/LayerTwo';
-import { StageDragHandler, LayerThree } from './components/LayerThree/LayerThree';
+import { StageDragHandler } from './components/LayerThree/LayerThree';
 import { useRef } from 'react';
+import { TilesLayer } from './components/Tiles/TilesLayer';
 
 const scaleBy = 1.1;
 
@@ -10,9 +9,6 @@ function App() {
   const layerRef = useRef<StageDragHandler>(null);
 
   return (
-    // Stage - is a div wrapper
-    // Layer - is an actual 2d canvas element, so you can have several layers inside the stage
-    // Rect and Circle are not DOM elements. They are 2d shapes on canvas
 
     <Stage
       width={window.innerWidth}
@@ -22,6 +18,8 @@ function App() {
         layerRef.current?.onDragEnd();
       }}
       onWheel={(e) => {
+        layerRef.current?.onDragEnd();
+
         e.evt.preventDefault();
 
         const stage = e.target.getStage();
@@ -48,9 +46,7 @@ function App() {
 
       }}
     >
-      <LayerOne></LayerOne>
-      <LayerTwo></LayerTwo>
-      <LayerThree ref={layerRef}></LayerThree>
+      <TilesLayer ref={layerRef}></TilesLayer>
     </Stage >
 
   )
