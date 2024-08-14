@@ -1,12 +1,15 @@
 import { Stage } from 'react-konva';
-import { StageDragHandler } from './components/LayerThree/LayerThree';
-import { useRef } from 'react';
-import { TilesLayer } from './components/Tiles/TilesLayer';
+// import { LayerThree, StageDragHandler } from './components/LayerThree/LayerThree';
+// import { useRef } from 'react';
+// import { TilesLayer } from './components/Tiles/TilesLayer';
+// import { LayerOne } from './components/LayerOne/LayerOne';
+// import { LayerTwo } from './components/LayerTwo/LayerTwo';
+import { PerformanceLayer } from './components/Performance/PerformanceLayer';
 
 const scaleBy = 1.1;
 
 function App() {
-  const layerRef = useRef<StageDragHandler>(null);
+  //const layerRef = useRef<StageDragHandler>(null);
 
   return (
 
@@ -15,10 +18,10 @@ function App() {
       height={window.innerHeight}
       draggable={true}
       onDragEnd={() => {
-        layerRef.current?.onDragEnd();
+        // layerRef.current?.onDragEnd();
       }}
       onWheel={(e) => {
-        layerRef.current?.onDragEnd();
+        // layerRef.current?.onDragEnd();
 
         e.evt.preventDefault();
 
@@ -46,7 +49,13 @@ function App() {
 
       }}
     >
-      <TilesLayer ref={layerRef}></TilesLayer>
+
+      <PerformanceLayer />
+
+      {/* <TilesLayer ref={layerRef}></TilesLayer> */}
+      {/* <LayerOne></LayerOne>
+      <LayerTwo></LayerTwo>
+      <LayerThree ref={layerRef}></LayerThree> */}
     </Stage >
 
   )
